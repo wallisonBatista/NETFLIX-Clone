@@ -1,0 +1,40 @@
+.movieRow {
+    margin-bottom: 30px;
+}
+
+.movieRow h2 {
+    margin: 0px 0px 0px 30px;
+}
+
+.movieRow--listarea {
+    /* Tudo que passar da tela na horizontal vai ser 'cortado' */
+    overflow-x: hidden;
+    padding-left: 30px;
+}
+
+.movieRow--list {
+    width: 9999999px;
+}
+
+.movieRow--item {
+    /* Deixando um item ao lado do outro */
+    display: inline-block;
+
+    cursor: pointer;
+    width: 150px;
+}
+
+.movieRow--item img {
+    width: 100%;
+
+    /*Diminuindo a imagem para ficar com tamanho 90% e da separar as imagens dos filmes das listas*/
+    transform: scale(0.9);
+
+    /* Qualquer animação que tiver no elemento será do tipo ease e durar 0.2 segundos*/
+    transition: all ease 0.2s;
+}
+
+/* Ao passar o mouse a imagem volta ao scale 1 e tamanho original 100% */
+.movieRow--item img:hover {
+    transform: scale(1);
+}
