@@ -3,12 +3,14 @@ import Tmdb from './Tmdb';
 import './App.css';
 import MovieRow from './components/MovieRow';
 import FeatureMovie from './components/FeatureMovie';
+import Header from './components/Header';
 
 
 export default () => {
 
     const [movieList, setMovieList] = useState([]);
     const [featuredData, setFeaturedData] = useState(null); //mostrar o destaque apenas quando tiver filme carregado
+    const [blackHeader, setBlackHeader] = useState(false);
 
     //Ao carregar a página será exibido
     useEffect(() => {
@@ -28,8 +30,26 @@ export default () => {
         loadAll();
     }, [])
 
+    useEffect(() => {
+        const scrollListener = () => {
+            if (window.scrollY > 10) {
+                setBlackHeader(true);
+            } else {
+                setBlackHeader(false);
+            }
+        }
+
+        window.addEventListener('scroll', scrollListener);
+
+        return () => {
+            window.removeEventListener('sroll', scrollListener);
+        }
+    }, []);
+
     return (
         <div className="page">
+
+            <Header black={blackHeader} />
 
             {featuredData &&
                 <FeatureMovie item={featuredData} />
