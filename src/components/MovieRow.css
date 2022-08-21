@@ -6,14 +6,14 @@
     margin: 0px 0px 0px 30px;
 }
 
+.movieRow--list {
+    transition: all ease .5s;
+}
+
 .movieRow--listarea {
     /* Tudo que passar da tela na horizontal vai ser 'cortado' */
     overflow-x: hidden;
     padding-left: 30px;
-}
-
-.movieRow--list {
-    width: 9999999px;
 }
 
 .movieRow--item {
@@ -37,4 +37,42 @@
 /* Ao passar o mouse a imagem volta ao scale 1 e tamanho original 100% */
 .movieRow--item img:hover {
     transform: scale(1);
+}
+
+/* Lista icons */
+
+.movieRow--left,
+.movieRow--right {
+    position: absolute;
+    width: 2.5rem;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease .5s;
+}
+
+.movieRow--left {
+    left: 0;
+}
+
+.movieRow--right {
+    right: 0;
+}
+
+.movieRow:hover .movieRow--left,
+.movieRow:hover .movieRow--right {
+    opacity: 1;
+}
+
+@media (max-width: 760px) {
+    .movieRow--left,
+    .movieRow--right {
+        opacity: 1;
+    }
 }
